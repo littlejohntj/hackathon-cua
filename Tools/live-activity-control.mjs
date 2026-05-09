@@ -206,7 +206,8 @@ async function sendLiveActivity(input) {
     contents: { en: shouldAlert ? state.detailLine1 : state.headline },
     headings: shouldAlert ? { en: state.headline } : undefined,
     priority: shouldAlert ? 10 : 5,
-    ios_sound: shouldAlert ? "default" : "nil",
+    ios_sound: shouldAlert ? undefined : "nil",
+    ios_interruption_level: shouldAlert ? "time-sensitive" : undefined,
     ios_relevance_score: event === "end" ? 0 : shouldAlert ? 1 : 0.9,
     stale_date: event === "end" ? undefined : Math.floor(Date.now() / 1000) + 15 * 60,
     dismissal_date: event === "end" ? Math.floor(Date.now() / 1000) - 60 : undefined

@@ -17,7 +17,8 @@ struct OneSignalLiveActivityAPI {
             staleDate: Int(Date().addingTimeInterval(15 * 60).timeIntervalSince1970),
             dismissalDate: nil,
             priority: 10,
-            iosSound: "default",
+            iosSound: nil,
+            iosInterruptionLevel: "time-sensitive",
             iosRelevanceScore: 1
         )
         return try await send(payload, activityID: activityID)
@@ -34,6 +35,7 @@ struct OneSignalLiveActivityAPI {
             dismissalDate: Int(Date().addingTimeInterval(-60).timeIntervalSince1970),
             priority: 10,
             iosSound: "nil",
+            iosInterruptionLevel: nil,
             iosRelevanceScore: 0
         )
         return try await send(payload, activityID: activityID)
@@ -78,6 +80,7 @@ private struct LiveActivityPayload: Encodable {
     var dismissalDate: Int?
     var priority: Int
     var iosSound: String?
+    var iosInterruptionLevel: String?
     var iosRelevanceScore: Double
 
     enum CodingKeys: String, CodingKey {
@@ -90,6 +93,7 @@ private struct LiveActivityPayload: Encodable {
         case dismissalDate = "dismissal_date"
         case priority
         case iosSound = "ios_sound"
+        case iosInterruptionLevel = "ios_interruption_level"
         case iosRelevanceScore = "ios_relevance_score"
     }
 }
