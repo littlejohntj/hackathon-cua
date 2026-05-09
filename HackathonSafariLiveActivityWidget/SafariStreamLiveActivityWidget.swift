@@ -7,8 +7,7 @@ struct SafariStreamLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SafariStreamActivityAttributes.self) { context in
             VStack(spacing: 12) {
-                Image(systemName: context.state.iconName)
-                    .font(.system(size: 42, weight: .semibold))
+                liveActivityIcon(context.state.iconName, size: iconSize(for: context.state.iconName, base: 42))
                     .frame(width: 66, height: 66)
                     .foregroundStyle(.white)
                     .background(context.state.isLive ? Color.red : Color.secondary, in: RoundedRectangle(cornerRadius: 8))
@@ -36,8 +35,7 @@ struct SafariStreamLiveActivityWidget: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.center) {
-                    Image(systemName: context.state.iconName)
-                        .font(.title2.weight(.semibold))
+                    liveActivityIcon(context.state.iconName, size: iconSize(for: context.state.iconName, base: 26))
                         .foregroundStyle(.white)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
@@ -58,16 +56,37 @@ struct SafariStreamLiveActivityWidget: Widget {
                     .frame(maxWidth: .infinity, alignment: .center)
                 }
             } compactLeading: {
-                Image(systemName: context.state.iconName)
+                liveActivityIcon(context.state.iconName, size: iconSize(for: context.state.iconName, base: 16))
                     .foregroundStyle(.white)
             } compactTrailing: {
                 EmptyView()
             } minimal: {
-                Image(systemName: context.state.iconName)
+                liveActivityIcon(context.state.iconName, size: iconSize(for: context.state.iconName, base: 14))
                     .foregroundStyle(.white)
             }
             .keylineTint(.red)
             .onesignalWidgetURL(URL(string: "hackathonsafari://stream/\(context.attributes.onesignal.activityId)"), context: context)
         }
+    }
+
+    @ViewBuilder
+    private func liveActivityIcon(_ iconName: String, size: CGFloat) -> some View {
+        if let emoji = emojiValue(from: iconName) {
+            Text(emoji)
+                .font(.system(size: size))
+        } else {
+            Image(systemName: iconName)
+                .font(.system(size: size, weight: .semibold))
+        }
+    }
+
+    private func emojiValue(from iconName: String) -> String? {
+        let prefix = "emoji:"
+        guard iconName.hasPrefix(prefix) else { return nil }
+        return String(iconName.dropFirst(prefix.count))
+    }
+
+    private func iconSize(for iconName: String, base: CGFloat) -> CGFloat {
+        emojiValue(from: iconName) == nil ? base : base + 8
     }
 }

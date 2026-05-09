@@ -12,7 +12,7 @@ final class LiveActivityDemoModel: ObservableObject {
     @Published var elapsedSeconds = 0
     @Published var quality = "720p"
     @Published var isLive = false
-    @Published var iconName = "display"
+    @Published var iconName = "emoji:👋"
     @Published var headline = "Screen share is live"
     @Published var detailLine1 = "Waiting for a web control update"
     @Published var detailLine2 = "Use safari-stream-demo as the Activity ID"

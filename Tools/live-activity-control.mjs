@@ -5,7 +5,7 @@ const serverAPIKey = process.env.ONESIGNAL_API_KEY ?? "";
 const port = Number(process.env.LIVE_ACTIVITY_CONTROL_PORT ?? 8090);
 
 const icons = [
-  ["display", "Display"],
+  ["emoji:👋", "Wave"],
   ["safari", "Safari"],
   ["video.fill", "Video"],
   ["bolt.fill", "Boost"],
@@ -113,7 +113,7 @@ const page = `<!doctype html>
   </main>
 
   <script>
-    let iconName = "display";
+    let iconName = "emoji:👋";
     const output = document.getElementById("output");
     document.querySelectorAll(".icon").forEach(button => {
       button.addEventListener("click", () => {
@@ -260,7 +260,7 @@ function normalizeState(state, event) {
 }
 
 function allowedIcon(iconName) {
-  return icons.some(([name]) => name === iconName) ? iconName : "display";
+  return icons.some(([name]) => name === iconName) ? iconName : "emoji:👋";
 }
 
 function stringValue(value, fallback) {
