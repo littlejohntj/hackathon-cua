@@ -12,6 +12,15 @@ const icons = [
   ["person.2.fill", "People"],
 ];
 
+const instructionPresets = [
+  { label: "Settings", headline: "tap on the settings app, top row" },
+  { label: "General", headline: "tap on general" },
+  { label: "Software Update", headline: "tap on software update" },
+  { label: "All Good", headline: "you dont need to update youre all good" },
+  { label: "Leave App", headline: "leave the app" },
+  { label: "Tap Hand", headline: "tap on the hand!" },
+];
+
 const page = `<!doctype html>
 <html>
 <head>
@@ -33,13 +42,15 @@ const page = `<!doctype html>
     .icons { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 8px 0 16px; }
     .icon { border: 1px solid var(--line); border-radius: 8px; padding: 12px 8px; background: ButtonFace; color: ButtonText; cursor: pointer; font-weight: 700; }
     .icon[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent), transparent 75%); }
+    .presets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 8px 0 16px; }
+    .preset { min-height: 58px; text-align: left; background: ButtonFace; color: ButtonText; }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     button { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; font: inherit; font-weight: 700; cursor: pointer; }
     .primary { background: var(--accent); border-color: var(--accent); color: white; }
     .danger { color: #b42318; }
     pre { white-space: pre-wrap; word-break: break-word; margin: 12px 0 0; padding: 12px; border-radius: 8px; background: color-mix(in srgb, CanvasText, transparent 92%); }
     .hint { color: color-mix(in srgb, CanvasText, transparent 35%); font-size: 13px; }
-    @media (max-width: 640px) { .grid, .icons { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .grid, .icons, .presets { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -62,6 +73,9 @@ const page = `<!doctype html>
       <div class="icons" id="icons">
         ${icons.map(([name, label], index) => `<button class="icon" type="button" data-icon="${name}" aria-pressed="${index === 0}">${label}<br><small>${name}</small></button>`).join("")}
       </div>
+
+      <label>Preset instructions</label>
+      <div class="presets" id="instructionPresets"></div>
 
       <label>Headline
         <input id="headline" value="Screen share is live" maxlength="80">
@@ -114,12 +128,29 @@ const page = `<!doctype html>
 
   <script>
     let iconName = "emoji:👋";
+    const instructionPresets = ${JSON.stringify(instructionPresets)};
     const output = document.getElementById("output");
     document.querySelectorAll(".icon").forEach(button => {
       button.addEventListener("click", () => {
-        iconName = button.dataset.icon;
-        document.querySelectorAll(".icon").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+        setIcon(button.dataset.icon);
       });
+    });
+    const presetContainer = document.getElementById("instructionPresets");
+    instructionPresets.forEach(preset => {
+      const button = document.createElement("button");
+      button.className = "preset";
+      button.type = "button";
+      button.title = preset.label;
+      button.textContent = preset.headline;
+      button.addEventListener("click", () => {
+        document.getElementById("headline").value = preset.headline;
+        document.getElementById("detailLine1").value = "";
+        document.getElementById("detailLine2").value = "";
+        document.getElementById("alertUpdate").checked = true;
+        setIcon("emoji:👋");
+        send("update");
+      });
+      presetContainer.append(button);
     });
     document.getElementById("plusViewer").addEventListener("click", () => {
       const input = document.getElementById("viewerCount");
@@ -163,6 +194,13 @@ const page = `<!doctype html>
     function value(id) {
       return document.getElementById(id).value.trim();
     }
+
+    function setIcon(nextIconName) {
+      iconName = nextIconName;
+      document.querySelectorAll(".icon").forEach(item => {
+        item.setAttribute("aria-pressed", String(item.dataset.icon === iconName));
+      });
+    }
   </script>
 </body>
 </html>`;
@@ -203,7 +241,7 @@ async function sendLiveActivity(input) {
     event,
     event_updates: state,
     name: event === "end" ? "Hackathon Safari ended" : "Hackathon Safari update",
-    contents: { en: shouldAlert ? state.detailLine1 : state.headline },
+    contents: { en: shouldAlert ? state.detailLine1 || state.headline : state.headline },
     headings: shouldAlert ? { en: state.headline } : undefined,
     priority: shouldAlert ? 10 : 5,
     ios_sound: shouldAlert ? undefined : "nil",
@@ -254,8 +292,8 @@ function normalizeState(state, event) {
     isLive: event !== "end" && Boolean(state.isLive),
     iconName: allowedIcon(state.iconName),
     headline: stringValue(state.headline, event === "end" ? "Screen share ended" : "Screen share is live"),
-    detailLine1: stringValue(state.detailLine1, "Live Activity updated from the web control"),
-    detailLine2: stringValue(state.detailLine2, "Hackathon Safari")
+    detailLine1: stringValue(state.detailLine1, "Live Activity updated from the web control", { allowEmpty: true }),
+    detailLine2: stringValue(state.detailLine2, "Hackathon Safari", { allowEmpty: true })
   };
 }
 
@@ -263,8 +301,9 @@ function allowedIcon(iconName) {
   return icons.some(([name]) => name === iconName) ? iconName : "emoji:👋";
 }
 
-function stringValue(value, fallback) {
+function stringValue(value, fallback, options = {}) {
   const text = String(value ?? "").trim();
+  if (options.allowEmpty && value != null) return text;
   return text || fallback;
 }
 
