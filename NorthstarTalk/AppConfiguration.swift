@@ -9,4 +9,5 @@ enum AppConfiguration {
     }()
 
     static let frameServerPort: UInt16 = 17771
+    static let guideServerURL = URL(string: "http://192.168.2.247:17772")!
 }

@@ -11,3 +11,6 @@ xcuserdata/
 *.swo
 *.tmp
 *.log
+logs/
+models/**/*.safetensors
+**/__pycache__

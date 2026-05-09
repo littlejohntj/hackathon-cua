@@ -1,0 +1,676 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		064023AB0D1980B543584B5E /* NorthstarGuideActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221189269B79800A5252D8 /* NorthstarGuideActivityAttributes.swift */; };
+		09D91C14CA5503AC2E48ED8F /* NorthstarEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B4B5BF5F6D9B610084C71 /* NorthstarEngine.swift */; };
+		17488D879B0E15014B52D561 /* ScreenGuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF882F309D3494202DF81F27 /* ScreenGuideController.swift */; };
+		26558013A6184D311D9262E9 /* BackgroundAudioKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97145C4BC5B6349B75F9D32 /* BackgroundAudioKeeper.swift */; };
+		33A43FEC4209AB41A8580ADE /* NorthstarGuideActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221189269B79800A5252D8 /* NorthstarGuideActivityAttributes.swift */; };
+		40CB8FEBEF60007DDB7FB678 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B62F8A67C060F92E723ED /* SampleHandler.swift */; };
+		4326A5E10B54A00CEABD88A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498EAA472C92199EEF24E1B /* ContentView.swift */; };
+		4A09A128D2D42825B23FFAE5 /* TokenizerSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E1F6B6743F1509C51566F /* TokenizerSupport.swift */; };
+		50CAFA146B592CA80EB9C089 /* FrameSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F11845A91B82D7BC5066E /* FrameSimilarity.swift */; };
+		5CF59A167E4CDC6FC3D26B2F /* NorthstarTalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0222F7881FB6FFC0E1CBA /* NorthstarTalkApp.swift */; };
+		64EA35AA1598BBA3A98DF79F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F5E6CB5541675320C37539 /* AppConfiguration.swift */; };
+		7A0996FBB070203D4B1C6DBD /* NorthstarGuideActivityWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EBE354688AD7DEC4C4CC7 /* NorthstarGuideActivityWidgetBundle.swift */; };
+		7A683A2F061F5B1792A9A01D /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 1CE5C0EB96549ECF9AE32B6E /* MLXLMCommon */; };
+		7DCD0C3B13F8780998207F38 /* Tokenizers in Frameworks */ = {isa = PBXBuildFile; productRef = 11B894CEBC574A0AA92418CF /* Tokenizers */; };
+		83D4F0729052A4A0D183B39E /* NorthstarFrameUpload.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 40771C470070486D49F8C687 /* NorthstarFrameUpload.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		88AD1B2B2EBBDE889BCB0934 /* NorthstarGuideActivityWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA37C59A853360E8927498CB /* NorthstarGuideActivityWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C8FC54A4C06789A5275F296 /* GuideActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262DAFA3FE0403FFBE9FF35 /* GuideActivityController.swift */; };
+		9FCDDEABB38A4908193FC3CD /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64320C8610C86F9540017C99 /* AppLog.swift */; };
+		A1BD893A867E0C307978A944 /* FrameStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A024B2054232003380F02C28 /* FrameStreamProtocol.swift */; };
+		A6A90A290C1704C43080396C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95A27A700A32570A92A42959 /* Assets.xcassets */; };
+		B21EFC989974138A90FD1EB2 /* BroadcastPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BC67FC342ED9CA74F693F /* BroadcastPickerView.swift */; };
+		B65F2A8C6EEA93CC25173FF7 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = 9A1C1E0FA95D847B78DE9B9E /* MLXVLM */; };
+		C4F82C3851894FD917B38492 /* FrameStreamServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8ED392202446AEA3C1FB9 /* FrameStreamServer.swift */; };
+		C7BD846E3B7FD2EDC48F60C4 /* SpeechIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94743C3B5E63A95F593E7083 /* SpeechIO.swift */; };
+		DB83BEF98A2B7B8CA566DB80 /* FrameStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A024B2054232003380F02C28 /* FrameStreamProtocol.swift */; };
+		DCF76FDA6C16DB1D445B723D /* FrameStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A024B2054232003380F02C28 /* FrameStreamProtocol.swift */; };
+		E0938B7904D8472F4D5B3BC3 /* NorthstarGuideActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4BA4E10AC50A4C8F454EA /* NorthstarGuideActivityWidget.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		976F10299FFC7348283AB688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3B14125C7CBD575E57BE34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC029D185726342535B4A92;
+			remoteInfo = NorthstarGuideActivityWidget;
+		};
+		FC07B625D765C8B6438425D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3B14125C7CBD575E57BE34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D1B20C7EE4B86A43AB271F7;
+			remoteInfo = NorthstarFrameUpload;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7F72FE199CE496E6A1A6E34 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				83D4F0729052A4A0D183B39E /* NorthstarFrameUpload.appex in Embed Foundation Extensions */,
+				88AD1B2B2EBBDE889BCB0934 /* NorthstarGuideActivityWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		278F11845A91B82D7BC5066E /* FrameSimilarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSimilarity.swift; sourceTree = "<group>"; };
+		33F5E6CB5541675320C37539 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		369B4B5BF5F6D9B610084C71 /* NorthstarEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthstarEngine.swift; sourceTree = "<group>"; };
+		39C169573D5F455F0FC4816E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3AA8ED392202446AEA3C1FB9 /* FrameStreamServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameStreamServer.swift; sourceTree = "<group>"; };
+		40771C470070486D49F8C687 /* NorthstarFrameUpload.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NorthstarFrameUpload.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3EBE354688AD7DEC4C4CC7 /* NorthstarGuideActivityWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthstarGuideActivityWidgetBundle.swift; sourceTree = "<group>"; };
+		51221189269B79800A5252D8 /* NorthstarGuideActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthstarGuideActivityAttributes.swift; sourceTree = "<group>"; };
+		64320C8610C86F9540017C99 /* AppLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLog.swift; sourceTree = "<group>"; };
+		8262DAFA3FE0403FFBE9FF35 /* GuideActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideActivityController.swift; sourceTree = "<group>"; };
+		838B62F8A67C060F92E723ED /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		8498EAA472C92199EEF24E1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		86AE5CED8254285F446F2292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		94743C3B5E63A95F593E7083 /* SpeechIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechIO.swift; sourceTree = "<group>"; };
+		95A27A700A32570A92A42959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A024B2054232003380F02C28 /* FrameStreamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameStreamProtocol.swift; sourceTree = "<group>"; };
+		A0C0222F7881FB6FFC0E1CBA /* NorthstarTalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthstarTalkApp.swift; sourceTree = "<group>"; };
+		BF882F309D3494202DF81F27 /* ScreenGuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenGuideController.swift; sourceTree = "<group>"; };
+		C7F4BA4E10AC50A4C8F454EA /* NorthstarGuideActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthstarGuideActivityWidget.swift; sourceTree = "<group>"; };
+		C97145C4BC5B6349B75F9D32 /* BackgroundAudioKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAudioKeeper.swift; sourceTree = "<group>"; };
+		CA0E1F6B6743F1509C51566F /* TokenizerSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerSupport.swift; sourceTree = "<group>"; };
+		CCBB3C0A45B61A268165BF94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D42BC67FC342ED9CA74F693F /* BroadcastPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastPickerView.swift; sourceTree = "<group>"; };
+		EA37C59A853360E8927498CB /* NorthstarGuideActivityWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NorthstarGuideActivityWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1079F8D62FCCF7636F54493 /* NorthstarTalk.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NorthstarTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		722BCC36E0BCD28FBCBDE1F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65F2A8C6EEA93CC25173FF7 /* MLXVLM in Frameworks */,
+				7A683A2F061F5B1792A9A01D /* MLXLMCommon in Frameworks */,
+				7DCD0C3B13F8780998207F38 /* Tokenizers in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FBBAD43FA32A1B902EC781E /* NorthstarFrameUpload */ = {
+			isa = PBXGroup;
+			children = (
+				86AE5CED8254285F446F2292 /* Info.plist */,
+				838B62F8A67C060F92E723ED /* SampleHandler.swift */,
+			);
+			path = NorthstarFrameUpload;
+			sourceTree = "<group>";
+		};
+		46F38F1869A387ABFF1F979C /* NorthstarShared */ = {
+			isa = PBXGroup;
+			children = (
+				A024B2054232003380F02C28 /* FrameStreamProtocol.swift */,
+				51221189269B79800A5252D8 /* NorthstarGuideActivityAttributes.swift */,
+			);
+			path = NorthstarShared;
+			sourceTree = "<group>";
+		};
+		48306E0DBD64D9ADC0445945 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40771C470070486D49F8C687 /* NorthstarFrameUpload.appex */,
+				EA37C59A853360E8927498CB /* NorthstarGuideActivityWidget.appex */,
+				F1079F8D62FCCF7636F54493 /* NorthstarTalk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FD394FF127CBA761527FDD1 /* NorthstarTalk */ = {
+			isa = PBXGroup;
+			children = (
+				33F5E6CB5541675320C37539 /* AppConfiguration.swift */,
+				64320C8610C86F9540017C99 /* AppLog.swift */,
+				95A27A700A32570A92A42959 /* Assets.xcassets */,
+				C97145C4BC5B6349B75F9D32 /* BackgroundAudioKeeper.swift */,
+				D42BC67FC342ED9CA74F693F /* BroadcastPickerView.swift */,
+				8498EAA472C92199EEF24E1B /* ContentView.swift */,
+				278F11845A91B82D7BC5066E /* FrameSimilarity.swift */,
+				3AA8ED392202446AEA3C1FB9 /* FrameStreamServer.swift */,
+				8262DAFA3FE0403FFBE9FF35 /* GuideActivityController.swift */,
+				39C169573D5F455F0FC4816E /* Info.plist */,
+				369B4B5BF5F6D9B610084C71 /* NorthstarEngine.swift */,
+				A0C0222F7881FB6FFC0E1CBA /* NorthstarTalkApp.swift */,
+				BF882F309D3494202DF81F27 /* ScreenGuideController.swift */,
+				94743C3B5E63A95F593E7083 /* SpeechIO.swift */,
+				CA0E1F6B6743F1509C51566F /* TokenizerSupport.swift */,
+			);
+			path = NorthstarTalk;
+			sourceTree = "<group>";
+		};
+		96DAF516EAAF53E0BD2BFFCA = {
+			isa = PBXGroup;
+			children = (
+				1FBBAD43FA32A1B902EC781E /* NorthstarFrameUpload */,
+				D7B4DF09C4D1A2D7BAFC4B64 /* NorthstarGuideActivityWidget */,
+				46F38F1869A387ABFF1F979C /* NorthstarShared */,
+				5FD394FF127CBA761527FDD1 /* NorthstarTalk */,
+				48306E0DBD64D9ADC0445945 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7B4DF09C4D1A2D7BAFC4B64 /* NorthstarGuideActivityWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CCBB3C0A45B61A268165BF94 /* Info.plist */,
+				C7F4BA4E10AC50A4C8F454EA /* NorthstarGuideActivityWidget.swift */,
+				4A3EBE354688AD7DEC4C4CC7 /* NorthstarGuideActivityWidgetBundle.swift */,
+			);
+			path = NorthstarGuideActivityWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C93FE5F816F934A7D92AE86 /* NorthstarTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54DC07615B54AD74552EA35E /* Build configuration list for PBXNativeTarget "NorthstarTalk" */;
+			buildPhases = (
+				6560A19F8788C900BFE622B1 /* Sources */,
+				0AC4B80E52D9E3BF31231591 /* Resources */,
+				722BCC36E0BCD28FBCBDE1F2 /* Frameworks */,
+				C7F72FE199CE496E6A1A6E34 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02EA67E8B1117CC26015DBEC /* PBXTargetDependency */,
+				8341E07690AC6B5C2A3C8BDD /* PBXTargetDependency */,
+			);
+			name = NorthstarTalk;
+			packageProductDependencies = (
+				9A1C1E0FA95D847B78DE9B9E /* MLXVLM */,
+				1CE5C0EB96549ECF9AE32B6E /* MLXLMCommon */,
+				11B894CEBC574A0AA92418CF /* Tokenizers */,
+			);
+			productName = NorthstarTalk;
+			productReference = F1079F8D62FCCF7636F54493 /* NorthstarTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5D1B20C7EE4B86A43AB271F7 /* NorthstarFrameUpload */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6B66D5679D837102054F99A /* Build configuration list for PBXNativeTarget "NorthstarFrameUpload" */;
+			buildPhases = (
+				96BC338DC50DF0D08B6D028E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NorthstarFrameUpload;
+			packageProductDependencies = (
+			);
+			productName = NorthstarFrameUpload;
+			productReference = 40771C470070486D49F8C687 /* NorthstarFrameUpload.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		ACC029D185726342535B4A92 /* NorthstarGuideActivityWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47CBB0E1FA4944233755DA44 /* Build configuration list for PBXNativeTarget "NorthstarGuideActivityWidget" */;
+			buildPhases = (
+				D2D120DEA8D6675ACE3C26EB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NorthstarGuideActivityWidget;
+			packageProductDependencies = (
+			);
+			productName = NorthstarGuideActivityWidget;
+			productReference = EA37C59A853360E8927498CB /* NorthstarGuideActivityWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC3B14125C7CBD575E57BE34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = AC6F200A9DA028DD32686BC1 /* Build configuration list for PBXProject "NorthstarTalk" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 96DAF516EAAF53E0BD2BFFCA;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				386EDD94D47601D9A234FB0D /* XCRemoteSwiftPackageReference "mlx-swift-lm" */,
+				907EA0C626DFE2824D09E7AE /* XCRemoteSwiftPackageReference "swift-transformers" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 48306E0DBD64D9ADC0445945 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D1B20C7EE4B86A43AB271F7 /* NorthstarFrameUpload */,
+				ACC029D185726342535B4A92 /* NorthstarGuideActivityWidget */,
+				5C93FE5F816F934A7D92AE86 /* NorthstarTalk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AC4B80E52D9E3BF31231591 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A90A290C1704C43080396C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6560A19F8788C900BFE622B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64EA35AA1598BBA3A98DF79F /* AppConfiguration.swift in Sources */,
+				9FCDDEABB38A4908193FC3CD /* AppLog.swift in Sources */,
+				26558013A6184D311D9262E9 /* BackgroundAudioKeeper.swift in Sources */,
+				B21EFC989974138A90FD1EB2 /* BroadcastPickerView.swift in Sources */,
+				4326A5E10B54A00CEABD88A7 /* ContentView.swift in Sources */,
+				50CAFA146B592CA80EB9C089 /* FrameSimilarity.swift in Sources */,
+				A1BD893A867E0C307978A944 /* FrameStreamProtocol.swift in Sources */,
+				C4F82C3851894FD917B38492 /* FrameStreamServer.swift in Sources */,
+				8C8FC54A4C06789A5275F296 /* GuideActivityController.swift in Sources */,
+				09D91C14CA5503AC2E48ED8F /* NorthstarEngine.swift in Sources */,
+				064023AB0D1980B543584B5E /* NorthstarGuideActivityAttributes.swift in Sources */,
+				5CF59A167E4CDC6FC3D26B2F /* NorthstarTalkApp.swift in Sources */,
+				17488D879B0E15014B52D561 /* ScreenGuideController.swift in Sources */,
+				C7BD846E3B7FD2EDC48F60C4 /* SpeechIO.swift in Sources */,
+				4A09A128D2D42825B23FFAE5 /* TokenizerSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BC338DC50DF0D08B6D028E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83BEF98A2B7B8CA566DB80 /* FrameStreamProtocol.swift in Sources */,
+				40CB8FEBEF60007DDB7FB678 /* SampleHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2D120DEA8D6675ACE3C26EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF76FDA6C16DB1D445B723D /* FrameStreamProtocol.swift in Sources */,
+				33A43FEC4209AB41A8580ADE /* NorthstarGuideActivityAttributes.swift in Sources */,
+				E0938B7904D8472F4D5B3BC3 /* NorthstarGuideActivityWidget.swift in Sources */,
+				7A0996FBB070203D4B1C6DBD /* NorthstarGuideActivityWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02EA67E8B1117CC26015DBEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D1B20C7EE4B86A43AB271F7 /* NorthstarFrameUpload */;
+			targetProxy = FC07B625D765C8B6438425D0 /* PBXContainerItemProxy */;
+		};
+		8341E07690AC6B5C2A3C8BDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC029D185726342535B4A92 /* NorthstarGuideActivityWidget */;
+			targetProxy = 976F10299FFC7348283AB688 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		41C84CBC851AB9B80FC77544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BASE_BUNDLE_ID = ai.tzafonhack.NorthstarTalk;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = NorthstarFrameUpload/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID).FrameUpload";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		497FED051C9DA8D9D73BA7E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		66E7AAAF1C02DE7C0AEC9AA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASE_BUNDLE_ID = ai.tzafonhack.NorthstarTalk;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = NorthstarTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6AEF10FBC7B2F6230F5194B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		96E5FCD4050E9FAB632B1BC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASE_BUNDLE_ID = ai.tzafonhack.NorthstarTalk;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = NorthstarTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DD9005D33B62B3168EE111DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BASE_BUNDLE_ID = ai.tzafonhack.NorthstarTalk;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = NorthstarGuideActivityWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID).ActivityWidget";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EA04D12857A7009EDF61A926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BASE_BUNDLE_ID = ai.tzafonhack.NorthstarTalk;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = NorthstarFrameUpload/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID).FrameUpload";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F31D342CF4CF9B9E7C90E709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BASE_BUNDLE_ID = ai.tzafonhack.NorthstarTalk;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = NorthstarGuideActivityWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID).ActivityWidget";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47CBB0E1FA4944233755DA44 /* Build configuration list for PBXNativeTarget "NorthstarGuideActivityWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9005D33B62B3168EE111DB /* Debug */,
+				F31D342CF4CF9B9E7C90E709 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		54DC07615B54AD74552EA35E /* Build configuration list for PBXNativeTarget "NorthstarTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66E7AAAF1C02DE7C0AEC9AA0 /* Debug */,
+				96E5FCD4050E9FAB632B1BC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AC6F200A9DA028DD32686BC1 /* Build configuration list for PBXProject "NorthstarTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AEF10FBC7B2F6230F5194B4 /* Debug */,
+				497FED051C9DA8D9D73BA7E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E6B66D5679D837102054F99A /* Build configuration list for PBXNativeTarget "NorthstarFrameUpload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA04D12857A7009EDF61A926 /* Debug */,
+				41C84CBC851AB9B80FC77544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		386EDD94D47601D9A234FB0D /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.31.3;
+			};
+		};
+		907EA0C626DFE2824D09E7AE /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11B894CEBC574A0AA92418CF /* Tokenizers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907EA0C626DFE2824D09E7AE /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Tokenizers;
+		};
+		1CE5C0EB96549ECF9AE32B6E /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 386EDD94D47601D9A234FB0D /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+		9A1C1E0FA95D847B78DE9B9E /* MLXVLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 386EDD94D47601D9A234FB0D /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXVLM;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EC3B14125C7CBD575E57BE34 /* Project object */;
+}

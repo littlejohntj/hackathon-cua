@@ -22,8 +22,15 @@
     <true/>
     <key>LSSupportsOpeningDocumentsInPlace</key>
     <true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSAllowsLocalNetworking</key>
+        <true/>
+    </dict>
     <key>NSLocalNetworkUsageDescription</key>
-    <string>Northstar receives ReplayKit frames over a device-local connection.</string>
+    <string>Northstar receives ReplayKit frames and sends screenshots to the local Mac guide server.</string>
     <key>NSMicrophoneUsageDescription</key>
     <string>Northstar can record your voice if voice input is enabled.</string>
     <key>NSSpeechRecognitionUsageDescription</key>

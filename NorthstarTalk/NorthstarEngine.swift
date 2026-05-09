@@ -6,6 +6,21 @@ import MLXLMCommon
 import MLXVLM
 import UIKit
 
+private struct GuideRequest: Encodable, Sendable {
+    let task: String
+    let imageBase64: String
+}
+
+private struct GuideResponse: Decodable, Sendable {
+    let instruction: String?
+    let error: String?
+}
+
+private struct GuideInferenceResult: Sendable {
+    let text: String
+    let chunks: Int
+}
+
 struct ChatTurn: Identifiable, Equatable {
     enum Role: String {
         case user = "You"
@@ -171,8 +186,8 @@ final class VoiceOutput {
 
 @MainActor
 final class NorthstarEngine: ObservableObject {
-    @Published private(set) var status = ModelFiles.exists ? "Model found. Loading…" : "Run `make run-with-model`; the app will load automatically."
-    @Published private(set) var modelInstalled = ModelFiles.exists
+    @Published private(set) var status = "Laptop guide server: \(AppConfiguration.guideServerURL.absoluteString)"
+    @Published private(set) var modelInstalled = true
     @Published private(set) var isLoading = false
     @Published private(set) var isGenerating = false
 
@@ -183,8 +198,8 @@ final class NorthstarEngine: ObservableObject {
         AppLog.info("NorthstarEngine init installed=\(modelInstalled) path=\(ModelFiles.modelURL.path)")
     }
 
-    var modelPath: String { ModelFiles.modelURL.path }
-    var isReady: Bool { modelContainer != nil }
+    var modelPath: String { AppConfiguration.guideServerURL.absoluteString }
+    var isReady: Bool { true }
 
     private var generateParameters: GenerateParameters {
         GenerateParameters(
@@ -242,13 +257,9 @@ final class NorthstarEngine: ObservableObject {
     }
 
     func refreshModelState() {
-        modelInstalled = ModelFiles.exists
-        AppLog.info("refreshModelState installed=\(modelInstalled) ready=\(isReady) path=\(ModelFiles.modelURL.path)")
-        if modelInstalled && !isReady {
-            status = "Model found at \(ModelFiles.modelURL.lastPathComponent). Loading…"
-        } else if !modelInstalled {
-            status = "No model installed. Run `make run-with-model` from the Mac."
-        }
+        modelInstalled = true
+        status = "Laptop guide server: \(AppConfiguration.guideServerURL.absoluteString)"
+        AppLog.info("refreshModelState server=\(AppConfiguration.guideServerURL.absoluteString)")
     }
 
     func report(_ error: Error) {
@@ -285,82 +296,45 @@ final class NorthstarEngine: ObservableObject {
     }
 
     func load() async {
-        guard !isLoading else {
-            AppLog.info("load ignored already loading")
-            return
-        }
-        AppLog.info("load begin")
-        isLoading = true
-        defer { isLoading = false }
-
-        do {
-            let modelURL = ModelFiles.modelURL
-            AppLog.info("load validate path=\(modelURL.path)")
-            try ModelFiles.validate(at: modelURL)
-            modelInstalled = true
-            status = "Loading model from \(modelURL.lastPathComponent)…"
-
-            let container = try await loadModelContainer(
-                from: modelURL,
-                using: TransformersTokenizerLoader()
-            )
-            AppLog.info("loadModelContainer returned")
-            modelContainer = container
-            Memory.clearCache()
-            AppLog.info("load complete; MLX cache cleared")
-            status = "Ready. Enter a task, start guidance, then start the ReplayKit broadcast."
-        } catch {
-            AppLog.error("load failed error=\(error.localizedDescription)")
-            status = error.localizedDescription
-        }
+        AppLog.info("server mode ready url=\(AppConfiguration.guideServerURL.absoluteString)")
+        modelInstalled = true
+        status = "Ready. Start `make guide-server` on the Mac, then start guidance."
     }
 
     func instruction(for task: String, imageData: Data) async throws -> String {
         let callID = String(UUID().uuidString.prefix(8))
         let task = task.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !task.isEmpty else { throw GuideError.emptyTask }
-        guard let modelContainer else { throw GuideError.modelNotLoaded }
-        guard let image = CIImage(data: imageData) else { throw GuideError.invalidImage }
+        guard CIImage(data: imageData) != nil else { throw GuideError.invalidImage }
         guard !isGenerating else { throw GuideError.alreadyGenerating }
 
         isGenerating = true
-        status = "Analyzing screen…"
-        Memory.clearCache()
-        AppLog.info("guide \(callID) begin taskChars=\(task.count) imageBytes=\(imageData.count)")
+        status = "Sending screen to laptop…"
+        AppLog.info("guide \(callID) laptop begin taskChars=\(task.count) imageBytes=\(imageData.count) url=\(AppConfiguration.guideServerURL.absoluteString)")
         defer {
             isGenerating = false
-            Memory.clearCache()
-            AppLog.info("guide \(callID) finished; MLX cache cleared")
+            AppLog.info("guide \(callID) laptop finished")
         }
 
-        let prompt = """
-        User task: \(task)
+        var request = URLRequest(url: AppConfiguration.guideServerURL.appendingPathComponent("guide"))
+        request.httpMethod = "POST"
+        request.timeoutInterval = 180
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONEncoder().encode(GuideRequest(
+            task: task,
+            imageBase64: imageData.base64EncodedString()
+        ))
 
-        What is the next single step the user should take on this screen?
-        """
-        let images: [UserInput.Image] = [.ciImage(image)]
-        var chunkCount = 0
-        let cleaned = try await Device.withDefaultDevice(.cpu) {
-            AppLog.info("guide \(callID) using CPU default device for background-safe VLM")
-            let chat = makeGuideSession(modelContainer)
-            var response = ""
-            for try await chunk in chat.streamResponse(
-                to: prompt,
-                role: .user,
-                images: images,
-                videos: []
-            ) {
-                chunkCount += 1
-                response += chunk
-                if chunkCount == 1 || chunkCount % 16 == 0 {
-                    AppLog.info("guide \(callID) progress chunks=\(chunkCount) responseChars=\(response.count)")
-                }
-            }
-            return response.trimmingCharacters(in: .whitespacesAndNewlines)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+        let decoded = try JSONDecoder().decode(GuideResponse.self, from: data)
+        if statusCode != 200 {
+            throw GuideError.server(decoded.error ?? "HTTP \(statusCode)")
         }
+        let cleaned = (decoded.instruction ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let singleLine = cleaned.replacingOccurrences(of: "\n", with: " ")
         let preview = singleLine.count <= 180 ? singleLine : String(singleLine.prefix(180)) + "…"
-        AppLog.info("guide \(callID) ended chunks=\(chunkCount) responseChars=\(cleaned.count) response=\(preview)")
+        AppLog.info("guide \(callID) laptop ended responseChars=\(cleaned.count) response=\(preview)")
         status = "Ready."
         return cleaned.isEmpty ? "I don't see the next step yet — try opening the relevant app or settings screen." : cleaned
     }
@@ -375,6 +349,7 @@ enum GuideError: LocalizedError {
     case modelNotLoaded
     case invalidImage
     case alreadyGenerating
+    case server(String)
 
     var errorDescription: String? {
         switch self {
@@ -386,6 +361,8 @@ enum GuideError: LocalizedError {
             "ReplayKit sent an unreadable image."
         case .alreadyGenerating:
             "Northstar is already analyzing a frame."
+        case .server(let message):
+            "Laptop guide server error: \(message)"
         }
     }
 }

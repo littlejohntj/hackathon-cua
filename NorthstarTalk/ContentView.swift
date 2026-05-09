@@ -2,6 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var engine = NorthstarEngine()
     @StateObject private var guide = ScreenGuideController()
     @State private var importingModel = false
@@ -39,6 +40,9 @@ struct ContentView: View {
             if engine.modelInstalled && !engine.isReady {
                 await engine.load()
             }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            AppLog.info("scene phase=\(String(describing: phase))")
         }
     }
 

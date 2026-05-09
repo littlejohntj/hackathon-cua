@@ -1,0 +1,81 @@
+name: NorthstarTalk
+options:
+  bundleIdPrefix: ai.tzafonhack
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  mlx-swift-lm:
+    url: https://github.com/ml-explore/mlx-swift-lm
+    from: "3.31.3"
+  swift-transformers:
+    url: https://github.com/huggingface/swift-transformers
+    from: "1.3.0"
+targets:
+  NorthstarTalk:
+    type: application
+    platform: iOS
+    sources:
+      - path: NorthstarTalk
+      - path: NorthstarShared
+    dependencies:
+      - package: mlx-swift-lm
+        product: MLXVLM
+      - package: mlx-swift-lm
+        product: MLXLMCommon
+      - package: swift-transformers
+        product: Tokenizers
+      - target: NorthstarFrameUpload
+        embed: true
+      - target: NorthstarGuideActivityWidget
+        embed: true
+    settings:
+      base:
+        BASE_BUNDLE_ID: ai.tzafonhack.NorthstarTalk
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID)
+        INFOPLIST_FILE: NorthstarTalk/Info.plist
+        TARGETED_DEVICE_FAMILY: "1"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+  NorthstarFrameUpload:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: NorthstarFrameUpload
+      - path: NorthstarShared/FrameStreamProtocol.swift
+    settings:
+      base:
+        BASE_BUNDLE_ID: ai.tzafonhack.NorthstarTalk
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID).FrameUpload
+        INFOPLIST_FILE: NorthstarFrameUpload/Info.plist
+        TARGETED_DEVICE_FAMILY: "1"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        APPLICATION_EXTENSION_API_ONLY: YES
+  NorthstarGuideActivityWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: NorthstarGuideActivityWidget
+      - path: NorthstarShared
+    settings:
+      base:
+        BASE_BUNDLE_ID: ai.tzafonhack.NorthstarTalk
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID).ActivityWidget
+        INFOPLIST_FILE: NorthstarGuideActivityWidget/Info.plist
+        TARGETED_DEVICE_FAMILY: "1"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        APPLICATION_EXTENSION_API_ONLY: YES
+schemes:
+  NorthstarTalk:
+    build:
+      targets:
+        NorthstarTalk: all
+    run:
+      config: Debug

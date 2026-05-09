@@ -273,6 +273,9 @@ final class ScreenGuideController: ObservableObject {
         guard isRunning, let engine else { return }
         isAnalyzing = true
         status = "Analyzing changed frame…"
+        if instruction.isEmpty || instruction == "Waiting for ReplayKit…" || instruction == "Waiting for a changed screen…" {
+            instruction = "Analyzing changed screen…"
+        }
         log("analysis begin frameBytes=\(data.count) accepted=\(framesAccepted)")
         await activity.update(
             instruction: instruction,
