@@ -92,6 +92,10 @@ private struct LiveActivityEventUpdates: Encodable {
     var elapsedSeconds: Int
     var quality: String
     var isLive: Bool
+    var iconName: String
+    var headline: String
+    var detailLine1: String
+    var detailLine2: String
 
     init(state: SafariStreamActivityAttributes.ContentState) {
         status = state.status
@@ -99,6 +103,10 @@ private struct LiveActivityEventUpdates: Encodable {
         elapsedSeconds = state.elapsedSeconds
         quality = state.quality
         isLive = state.isLive
+        iconName = state.iconName
+        headline = state.headline
+        detailLine1 = state.detailLine1
+        detailLine2 = state.detailLine2
     }
 }
 

@@ -34,7 +34,7 @@ struct ContentView: View {
                 Button {
                     screenShare.startButtonTapped()
                 } label: {
-                    Label("In-app", systemImage: "play.fill")
+                    Label("App only", systemImage: "play.fill")
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(screenShare.isSharing)
@@ -47,10 +47,13 @@ struct ContentView: View {
                 .buttonStyle(.bordered)
                 .disabled(!screenShare.isSharing)
 
-                BroadcastPickerView(preferredExtension: AppConfiguration.broadcastUploadExtensionBundleID)
-                    .frame(width: 44, height: 44)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                SystemBroadcastButton(preferredExtension: AppConfiguration.broadcastUploadExtensionBundleID)
+                    .frame(height: 44)
             }
+
+            Text("Use Full device to keep streaming after leaving the app. It writes frames from the ReplayKit upload extension to the relay URL above.")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
 
             HStack {
                 statusPill(screenShare.status, systemImage: screenShare.isSharing ? "dot.radiowaves.left.and.right" : "circle")
@@ -154,6 +157,25 @@ struct ContentView: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .background(.thinMaterial, in: Capsule())
+    }
+}
+
+private struct SystemBroadcastButton: View {
+    var preferredExtension: String
+
+    var body: some View {
+        ZStack {
+            Label("Full device", systemImage: "iphone.and.arrow.forward")
+                .font(.body.weight(.semibold))
+                .padding(.horizontal, 14)
+                .frame(maxHeight: .infinity)
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+
+            BroadcastPickerView(preferredExtension: preferredExtension)
+                .opacity(0.02)
+        }
+        .fixedSize(horizontal: true, vertical: false)
+        .accessibilityLabel("Start full device screen broadcast")
     }
 }
 

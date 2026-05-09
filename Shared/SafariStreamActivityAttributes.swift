@@ -9,6 +9,10 @@ public struct SafariStreamActivityAttributes: OneSignalLiveActivityAttributes {
         public var elapsedSeconds: Int
         public var quality: String
         public var isLive: Bool
+        public var iconName: String
+        public var headline: String
+        public var detailLine1: String
+        public var detailLine2: String
         public var onesignal: OneSignalLiveActivityContentStateData?
 
         public init(
@@ -17,6 +21,10 @@ public struct SafariStreamActivityAttributes: OneSignalLiveActivityAttributes {
             elapsedSeconds: Int,
             quality: String,
             isLive: Bool,
+            iconName: String,
+            headline: String,
+            detailLine1: String,
+            detailLine2: String,
             onesignal: OneSignalLiveActivityContentStateData? = nil
         ) {
             self.status = status
@@ -24,6 +32,10 @@ public struct SafariStreamActivityAttributes: OneSignalLiveActivityAttributes {
             self.elapsedSeconds = elapsedSeconds
             self.quality = quality
             self.isLive = isLive
+            self.iconName = iconName
+            self.headline = headline
+            self.detailLine1 = detailLine1
+            self.detailLine2 = detailLine2
             self.onesignal = onesignal
         }
     }

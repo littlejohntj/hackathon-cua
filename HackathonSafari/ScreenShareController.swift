@@ -23,8 +23,10 @@ final class ScreenShareController: ObservableObject {
     private var lastFrameSentAt = Date.distantPast
 
     init() {
-        endpoint = UserDefaults(suiteName: AppConfiguration.appGroupID)?.string(forKey: "broadcastRelayURL")
-            ?? AppConfiguration.defaultRelayURL
+        let defaults = UserDefaults(suiteName: AppConfiguration.appGroupID)
+        let savedEndpoint = defaults?.string(forKey: "broadcastRelayURL")
+        endpoint = Self.isDeviceLocalRelayURL(savedEndpoint) ? AppConfiguration.defaultRelayURL : savedEndpoint ?? AppConfiguration.defaultRelayURL
+        defaults?.set(endpoint, forKey: "broadcastRelayURL")
     }
 
     func startButtonTapped() {
@@ -121,5 +123,15 @@ final class ScreenShareController: ObservableObject {
                 }
             }
         }
+    }
+
+    private static func isDeviceLocalRelayURL(_ endpoint: String?) -> Bool {
+        guard
+            let endpoint,
+            let url = URL(string: endpoint),
+            let host = url.host(percentEncoded: false)?.lowercased()
+        else { return false }
+
+        return ["localhost", "127.0.0.1", "::1"].contains(host)
     }
 }

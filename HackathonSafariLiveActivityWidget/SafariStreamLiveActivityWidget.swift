@@ -6,7 +6,7 @@ import WidgetKit
 struct SafariStreamLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SafariStreamActivityAttributes.self) { context in
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Label(context.state.isLive ? "Live" : "Offline", systemImage: "dot.radiowaves.left.and.right")
                         .font(.headline)
@@ -15,8 +15,23 @@ struct SafariStreamLiveActivityWidget: Widget {
                         .font(.subheadline.weight(.semibold))
                 }
 
-                Text(context.attributes.title)
-                    .font(.title3.weight(.semibold))
+                HStack(alignment: .center, spacing: 14) {
+                    Image(systemName: context.state.iconName)
+                        .font(.system(size: 42, weight: .semibold))
+                        .frame(width: 58, height: 58)
+                        .foregroundStyle(.white)
+                        .background(context.state.isLive ? Color.red : Color.secondary, in: RoundedRectangle(cornerRadius: 8))
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(context.state.headline)
+                            .font(.title3.weight(.semibold))
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.82)
+                        Text(context.attributes.hostName)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
 
                 HStack(spacing: 16) {
                     metric("\(context.state.viewerCount)", "viewers")
@@ -24,6 +39,18 @@ struct SafariStreamLiveActivityWidget: Widget {
                     Spacer()
                     Text(context.state.status)
                         .font(.caption.weight(.semibold))
+                }
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(context.state.detailLine1)
+                        .font(.subheadline.weight(.medium))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                    Text(context.state.detailLine2)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
                 }
             }
             .padding()
@@ -33,11 +60,15 @@ struct SafariStreamLiveActivityWidget: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    VStack(alignment: .leading) {
-                        Text(context.attributes.hostName)
-                            .font(.caption)
-                        Text(context.state.quality)
-                            .font(.headline)
+                    HStack(spacing: 8) {
+                        Image(systemName: context.state.iconName)
+                            .font(.title3.weight(.semibold))
+                        VStack(alignment: .leading) {
+                            Text(context.attributes.hostName)
+                                .font(.caption)
+                            Text(context.state.quality)
+                                .font(.headline)
+                        }
                     }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
@@ -49,19 +80,25 @@ struct SafariStreamLiveActivityWidget: Widget {
                     }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    HStack {
-                        Text(context.state.status)
-                        Spacer()
-                        Text(elapsedTime(context.state.elapsedSeconds))
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(context.state.headline)
+                            .font(.caption.weight(.semibold))
+                            .lineLimit(1)
+                        HStack {
+                            Text(context.state.detailLine1)
+                                .lineLimit(1)
+                            Spacer()
+                            Text(elapsedTime(context.state.elapsedSeconds))
+                        }
+                        .font(.caption2)
                     }
-                    .font(.caption)
                 }
             } compactLeading: {
-                Image(systemName: context.state.isLive ? "dot.radiowaves.left.and.right" : "pause.fill")
+                Image(systemName: context.state.iconName)
             } compactTrailing: {
                 Text("\(context.state.viewerCount)")
             } minimal: {
-                Image(systemName: "livephoto")
+                Image(systemName: context.state.iconName)
             }
             .keylineTint(.red)
             .onesignalWidgetURL(URL(string: "hackathonsafari://stream/\(context.attributes.onesignal.activityId)"), context: context)

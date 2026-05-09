@@ -10,6 +10,9 @@ import CoreImage
 import UIKit
 
 class SampleHandler: RPBroadcastSampleHandler {
+    private static let appGroupID = "group.com.jootsing.HackathonSafari"
+    private static let defaultRelayURL = "ws://192.168.2.30:8080/broadcast"
+
     private let imageContext = CIContext()
     private var webSocket: URLSessionWebSocketTask?
     private var lastFrameSentAt = Date.distantPast
@@ -17,8 +20,8 @@ class SampleHandler: RPBroadcastSampleHandler {
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
         let endpoint = setupInfo?["endpoint"] as? String
-            ?? UserDefaults(suiteName: "group.com.jootsing.HackathonSafari")?.string(forKey: "broadcastRelayURL")
-            ?? "ws://localhost:8080/broadcast"
+            ?? UserDefaults(suiteName: Self.appGroupID)?.string(forKey: "broadcastRelayURL")
+            ?? Self.defaultRelayURL
 
         guard let url = URL(string: endpoint), ["ws", "wss"].contains(url.scheme?.lowercased()) else {
             return

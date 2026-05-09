@@ -12,6 +12,10 @@ final class LiveActivityDemoModel: ObservableObject {
     @Published var elapsedSeconds = 0
     @Published var quality = "720p"
     @Published var isLive = false
+    @Published var iconName = "display"
+    @Published var headline = "Screen share is live"
+    @Published var detailLine1 = "Waiting for a web control update"
+    @Published var detailLine2 = "Use safari-stream-demo as the Activity ID"
     @Published var lastOneSignalRequestID: String?
 
     private var activity: Activity<SafariStreamActivityAttributes>?
@@ -22,7 +26,11 @@ final class LiveActivityDemoModel: ObservableObject {
             viewerCount: viewerCount,
             elapsedSeconds: elapsedSeconds,
             quality: quality,
-            isLive: isLive
+            isLive: isLive,
+            iconName: iconName,
+            headline: headline,
+            detailLine1: detailLine1,
+            detailLine2: detailLine2
         )
     }
 
@@ -63,6 +71,9 @@ final class LiveActivityDemoModel: ObservableObject {
             viewerCount += Int.random(in: -1...3)
             viewerCount = max(viewerCount, 0)
             status = isLive ? "Live" : "Paused"
+            headline = isLive ? "Screen share is live" : "Screen share paused"
+            detailLine1 = "\(viewerCount) viewers watching at \(quality)"
+            detailLine2 = "Elapsed \(elapsedSeconds) seconds"
             await updateLocalActivity()
         }
     }
@@ -74,6 +85,9 @@ final class LiveActivityDemoModel: ObservableObject {
                 viewerCount += Int.random(in: 1...5)
                 status = "Live"
                 isLive = true
+                headline = "Screen share is live"
+                detailLine1 = "\(viewerCount) viewers watching at \(quality)"
+                detailLine2 = "Updated from the iOS app"
                 let requestID = try await api.sendUpdate(activityID: activityID, state: currentState)
                 lastOneSignalRequestID = requestID
             } catch {
@@ -87,6 +101,10 @@ final class LiveActivityDemoModel: ObservableObject {
             do {
                 isLive = false
                 status = "Ended"
+                iconName = "stop.circle.fill"
+                headline = "Screen share ended"
+                detailLine1 = "\(viewerCount) viewers joined"
+                detailLine2 = "The Live Activity is closing"
                 await updateLocalActivity()
                 if !apiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                     lastOneSignalRequestID = try await api.end(activityID: activityID, state: currentState)
