@@ -12,11 +12,13 @@ struct OneSignalLiveActivityAPI {
             event: "update",
             eventUpdates: .init(state: state),
             name: "Safari stream update",
-            contents: ["en": "Stream status updated"],
+            contents: ["en": state.detailLine1],
+            headings: ["en": state.headline],
             staleDate: Int(Date().addingTimeInterval(15 * 60).timeIntervalSince1970),
             dismissalDate: nil,
             priority: 10,
-            iosRelevanceScore: 0.9
+            iosSound: "default",
+            iosRelevanceScore: 1
         )
         return try await send(payload, activityID: activityID)
     }
@@ -27,9 +29,11 @@ struct OneSignalLiveActivityAPI {
             eventUpdates: .init(state: state),
             name: "Safari stream ended",
             contents: ["en": "Stream ended"],
+            headings: nil,
             staleDate: nil,
             dismissalDate: Int(Date().addingTimeInterval(-60).timeIntervalSince1970),
             priority: 10,
+            iosSound: "nil",
             iosRelevanceScore: 0
         )
         return try await send(payload, activityID: activityID)
@@ -69,9 +73,11 @@ private struct LiveActivityPayload: Encodable {
     var eventUpdates: LiveActivityEventUpdates
     var name: String
     var contents: [String: String]
+    var headings: [String: String]?
     var staleDate: Int?
     var dismissalDate: Int?
     var priority: Int
+    var iosSound: String?
     var iosRelevanceScore: Double
 
     enum CodingKeys: String, CodingKey {
@@ -79,9 +85,11 @@ private struct LiveActivityPayload: Encodable {
         case eventUpdates = "event_updates"
         case name
         case contents
+        case headings
         case staleDate = "stale_date"
         case dismissalDate = "dismissal_date"
         case priority
+        case iosSound = "ios_sound"
         case iosRelevanceScore = "ios_relevance_score"
     }
 }

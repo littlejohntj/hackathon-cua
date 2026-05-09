@@ -25,6 +25,8 @@ const page = `<!doctype html>
     h1 { margin: 0 0 18px; font-size: 28px; letter-spacing: 0; }
     section { border: 1px solid var(--line); border-radius: 8px; padding: 18px; margin-bottom: 18px; }
     label { display: grid; gap: 7px; font-weight: 600; margin-bottom: 14px; }
+    label.inline { display: flex; align-items: center; gap: 10px; }
+    label.inline input { width: 18px; height: 18px; }
     input, select, textarea { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: Field; color: FieldText; }
     textarea { min-height: 52px; resize: vertical; }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -95,6 +97,10 @@ const page = `<!doctype html>
           <input id="elapsedSeconds" type="number" min="0" value="0">
         </label>
       </div>
+      <label class="inline">
+        <input id="alertUpdate" type="checkbox" checked>
+        Alert and expand on update
+      </label>
 
       <div class="actions">
         <button class="primary" id="push" type="button">Push Live Activity Update</button>
@@ -132,6 +138,7 @@ const page = `<!doctype html>
         activityID: value("activityID"),
         apiKey: value("apiKey"),
         event,
+        alert: event === "update" && document.getElementById("alertUpdate").checked,
         state: {
           status: event === "end" ? "Ended" : value("status"),
           viewerCount: Number(value("viewerCount")),
@@ -191,13 +198,16 @@ async function sendLiveActivity(input) {
   requireText(apiKey, "apiKey");
   const event = input.event === "end" ? "end" : "update";
   const state = normalizeState(input.state ?? {}, event);
+  const shouldAlert = event === "update" && input.alert !== false;
   const payload = {
     event,
     event_updates: state,
     name: event === "end" ? "Hackathon Safari ended" : "Hackathon Safari update",
-    contents: { en: state.headline },
-    priority: 10,
-    ios_relevance_score: event === "end" ? 0 : 0.9,
+    contents: { en: shouldAlert ? state.detailLine1 : state.headline },
+    headings: shouldAlert ? { en: state.headline } : undefined,
+    priority: shouldAlert ? 10 : 5,
+    ios_sound: shouldAlert ? "default" : "nil",
+    ios_relevance_score: event === "end" ? 0 : shouldAlert ? 1 : 0.9,
     stale_date: event === "end" ? undefined : Math.floor(Date.now() / 1000) + 15 * 60,
     dismissal_date: event === "end" ? Math.floor(Date.now() / 1000) - 60 : undefined
   };
@@ -227,6 +237,7 @@ async function sendLiveActivity(input) {
       status: oneSignalResponse.status,
       activityID,
       event,
+      alertingUpdate: shouldAlert,
       sentState: state,
       oneSignal: body
     }
