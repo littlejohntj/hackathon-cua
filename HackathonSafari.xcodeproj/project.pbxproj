@@ -1,0 +1,959 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		611B57C62FAFE26A000AAF1D /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 611B57C52FAFE26A000AAF1D /* OneSignalFramework */; };
+		611B57C82FAFE26A000AAF1D /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 611B57C72FAFE26A000AAF1D /* OneSignalInAppMessages */; };
+		611B57D02FAFE416000AAF1D /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611B57CF2FAFE416000AAF1D /* ReplayKit.framework */; };
+		611B57D72FAFE416000AAF1D /* HackathonSafarUload.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 611B57CD2FAFE416000AAF1D /* HackathonSafarUload.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		611B580A2FAFE600000AAF1D /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 611B57C52FAFE26A000AAF1D /* OneSignalFramework */; };
+		611B580B2FAFE600000AAF1D /* HackathonSafariLiveActivityWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 611B58022FAFE600000AAF1D /* HackathonSafariLiveActivityWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		611B57A72FAFDCA7000AAF1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 611B57912FAFDCA5000AAF1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 611B57982FAFDCA5000AAF1D;
+			remoteInfo = HackathonSafari;
+		};
+		611B57B12FAFDCA7000AAF1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 611B57912FAFDCA5000AAF1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 611B57982FAFDCA5000AAF1D;
+			remoteInfo = HackathonSafari;
+		};
+		611B57D52FAFE416000AAF1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 611B57912FAFDCA5000AAF1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 611B57CC2FAFE416000AAF1D;
+			remoteInfo = HackathonSafarUload;
+		};
+		611B580C2FAFE600000AAF1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 611B57912FAFDCA5000AAF1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 611B58062FAFE600000AAF1D;
+			remoteInfo = HackathonSafariLiveActivityWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		611B57DC2FAFE416000AAF1D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				611B57D72FAFE416000AAF1D /* HackathonSafarUload.appex in Embed Foundation Extensions */,
+				611B580B2FAFE600000AAF1D /* HackathonSafariLiveActivityWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		611B57992FAFDCA5000AAF1D /* HackathonSafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonSafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		611B57A62FAFDCA7000AAF1D /* HackathonSafariTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackathonSafariTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		611B57B02FAFDCA7000AAF1D /* HackathonSafariUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackathonSafariUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		611B57CD2FAFE416000AAF1D /* HackathonSafarUload.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackathonSafarUload.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		611B57CF2FAFE416000AAF1D /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		611B58022FAFE600000AAF1D /* HackathonSafariLiveActivityWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackathonSafariLiveActivityWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		611B57D82FAFE416000AAF1D /* Exceptions for "HackathonSafarUload" folder in "HackathonSafarUload" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 611B57CC2FAFE416000AAF1D /* HackathonSafarUload */;
+		};
+		611B580E2FAFE600000AAF1D /* Exceptions for "HackathonSafariLiveActivityWidget" folder in "HackathonSafariLiveActivityWidget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 611B58062FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		611B579B2FAFDCA5000AAF1D /* HackathonSafari */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HackathonSafari;
+			sourceTree = "<group>";
+		};
+		611B57A92FAFDCA7000AAF1D /* HackathonSafariTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HackathonSafariTests;
+			sourceTree = "<group>";
+		};
+		611B57B32FAFDCA7000AAF1D /* HackathonSafariUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HackathonSafariUITests;
+			sourceTree = "<group>";
+		};
+		611B57D12FAFE416000AAF1D /* HackathonSafarUload */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				611B57D82FAFE416000AAF1D /* Exceptions for "HackathonSafarUload" folder in "HackathonSafarUload" target */,
+			);
+			path = HackathonSafarUload;
+			sourceTree = "<group>";
+		};
+		611B58002FAFE600000AAF1D /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		611B58012FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				611B580E2FAFE600000AAF1D /* Exceptions for "HackathonSafariLiveActivityWidget" folder in "HackathonSafariLiveActivityWidget" target */,
+			);
+			path = HackathonSafariLiveActivityWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		611B57962FAFDCA5000AAF1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				611B57C82FAFE26A000AAF1D /* OneSignalInAppMessages in Frameworks */,
+				611B57C62FAFE26A000AAF1D /* OneSignalFramework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57A32FAFDCA7000AAF1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57AD2FAFDCA7000AAF1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57CA2FAFE416000AAF1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				611B57D02FAFE416000AAF1D /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B58032FAFE600000AAF1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				611B580A2FAFE600000AAF1D /* OneSignalFramework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		611B57902FAFDCA5000AAF1D = {
+			isa = PBXGroup;
+			children = (
+				611B579B2FAFDCA5000AAF1D /* HackathonSafari */,
+				611B58002FAFE600000AAF1D /* Shared */,
+				611B57A92FAFDCA7000AAF1D /* HackathonSafariTests */,
+				611B57B32FAFDCA7000AAF1D /* HackathonSafariUITests */,
+				611B57D12FAFE416000AAF1D /* HackathonSafarUload */,
+				611B58012FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */,
+				611B57CE2FAFE416000AAF1D /* Frameworks */,
+				611B579A2FAFDCA5000AAF1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		611B579A2FAFDCA5000AAF1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				611B57992FAFDCA5000AAF1D /* HackathonSafari.app */,
+				611B57A62FAFDCA7000AAF1D /* HackathonSafariTests.xctest */,
+				611B57B02FAFDCA7000AAF1D /* HackathonSafariUITests.xctest */,
+				611B57CD2FAFE416000AAF1D /* HackathonSafarUload.appex */,
+				611B58022FAFE600000AAF1D /* HackathonSafariLiveActivityWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		611B57CE2FAFE416000AAF1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				611B57CF2FAFE416000AAF1D /* ReplayKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		611B57982FAFDCA5000AAF1D /* HackathonSafari */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 611B57BA2FAFDCA7000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafari" */;
+			buildPhases = (
+				611B57952FAFDCA5000AAF1D /* Sources */,
+				611B57962FAFDCA5000AAF1D /* Frameworks */,
+				611B57972FAFDCA5000AAF1D /* Resources */,
+				611B57DC2FAFE416000AAF1D /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				611B57D62FAFE416000AAF1D /* PBXTargetDependency */,
+				611B580D2FAFE600000AAF1D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				611B579B2FAFDCA5000AAF1D /* HackathonSafari */,
+				611B58002FAFE600000AAF1D /* Shared */,
+			);
+			name = HackathonSafari;
+			packageProductDependencies = (
+				611B57C52FAFE26A000AAF1D /* OneSignalFramework */,
+				611B57C72FAFE26A000AAF1D /* OneSignalInAppMessages */,
+			);
+			productName = HackathonSafari;
+			productReference = 611B57992FAFDCA5000AAF1D /* HackathonSafari.app */;
+			productType = "com.apple.product-type.application";
+		};
+		611B57A52FAFDCA7000AAF1D /* HackathonSafariTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 611B57BD2FAFDCA7000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafariTests" */;
+			buildPhases = (
+				611B57A22FAFDCA7000AAF1D /* Sources */,
+				611B57A32FAFDCA7000AAF1D /* Frameworks */,
+				611B57A42FAFDCA7000AAF1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				611B57A82FAFDCA7000AAF1D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				611B57A92FAFDCA7000AAF1D /* HackathonSafariTests */,
+			);
+			name = HackathonSafariTests;
+			packageProductDependencies = (
+			);
+			productName = HackathonSafariTests;
+			productReference = 611B57A62FAFDCA7000AAF1D /* HackathonSafariTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		611B57AF2FAFDCA7000AAF1D /* HackathonSafariUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 611B57C02FAFDCA7000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafariUITests" */;
+			buildPhases = (
+				611B57AC2FAFDCA7000AAF1D /* Sources */,
+				611B57AD2FAFDCA7000AAF1D /* Frameworks */,
+				611B57AE2FAFDCA7000AAF1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				611B57B22FAFDCA7000AAF1D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				611B57B32FAFDCA7000AAF1D /* HackathonSafariUITests */,
+			);
+			name = HackathonSafariUITests;
+			packageProductDependencies = (
+			);
+			productName = HackathonSafariUITests;
+			productReference = 611B57B02FAFDCA7000AAF1D /* HackathonSafariUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		611B57CC2FAFE416000AAF1D /* HackathonSafarUload */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 611B57D92FAFE416000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafarUload" */;
+			buildPhases = (
+				611B57C92FAFE416000AAF1D /* Sources */,
+				611B57CA2FAFE416000AAF1D /* Frameworks */,
+				611B57CB2FAFE416000AAF1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				611B57D12FAFE416000AAF1D /* HackathonSafarUload */,
+			);
+			name = HackathonSafarUload;
+			packageProductDependencies = (
+			);
+			productName = HackathonSafarUload;
+			productReference = 611B57CD2FAFE416000AAF1D /* HackathonSafarUload.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		611B58062FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 611B58092FAFE600000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafariLiveActivityWidget" */;
+			buildPhases = (
+				611B58042FAFE600000AAF1D /* Sources */,
+				611B58032FAFE600000AAF1D /* Frameworks */,
+				611B58052FAFE600000AAF1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				611B58002FAFE600000AAF1D /* Shared */,
+				611B58012FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */,
+			);
+			name = HackathonSafariLiveActivityWidget;
+			packageProductDependencies = (
+				611B57C52FAFE26A000AAF1D /* OneSignalFramework */,
+			);
+			productName = HackathonSafariLiveActivityWidget;
+			productReference = 611B58022FAFE600000AAF1D /* HackathonSafariLiveActivityWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		611B57912FAFDCA5000AAF1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					611B57982FAFDCA5000AAF1D = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					611B57A52FAFDCA7000AAF1D = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 611B57982FAFDCA5000AAF1D;
+					};
+					611B57AF2FAFDCA7000AAF1D = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 611B57982FAFDCA5000AAF1D;
+					};
+					611B57CC2FAFE416000AAF1D = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					611B58062FAFE600000AAF1D = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = 611B57942FAFDCA5000AAF1D /* Build configuration list for PBXProject "HackathonSafari" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 611B57902FAFDCA5000AAF1D;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				611B57C42FAFE26A000AAF1D /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 611B579A2FAFDCA5000AAF1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				611B57982FAFDCA5000AAF1D /* HackathonSafari */,
+				611B57A52FAFDCA7000AAF1D /* HackathonSafariTests */,
+				611B57AF2FAFDCA7000AAF1D /* HackathonSafariUITests */,
+				611B57CC2FAFE416000AAF1D /* HackathonSafarUload */,
+				611B58062FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		611B57972FAFDCA5000AAF1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57A42FAFDCA7000AAF1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57AE2FAFDCA7000AAF1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57CB2FAFE416000AAF1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B58052FAFE600000AAF1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		611B57952FAFDCA5000AAF1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57A22FAFDCA7000AAF1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57AC2FAFDCA7000AAF1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B57C92FAFE416000AAF1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B58042FAFE600000AAF1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		611B57A82FAFDCA7000AAF1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 611B57982FAFDCA5000AAF1D /* HackathonSafari */;
+			targetProxy = 611B57A72FAFDCA7000AAF1D /* PBXContainerItemProxy */;
+		};
+		611B57B22FAFDCA7000AAF1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 611B57982FAFDCA5000AAF1D /* HackathonSafari */;
+			targetProxy = 611B57B12FAFDCA7000AAF1D /* PBXContainerItemProxy */;
+		};
+		611B57D62FAFE416000AAF1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 611B57CC2FAFE416000AAF1D /* HackathonSafarUload */;
+			targetProxy = 611B57D52FAFE416000AAF1D /* PBXContainerItemProxy */;
+		};
+		611B580D2FAFE600000AAF1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 611B58062FAFE600000AAF1D /* HackathonSafariLiveActivityWidget */;
+			targetProxy = 611B580C2FAFE600000AAF1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		611B57B82FAFDCA7000AAF1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 737F76N37Q;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		611B57B92FAFDCA7000AAF1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 737F76N37Q;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		611B57BB2FAFDCA7000AAF1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HackathonSafari/HackathonSafari.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Y2RSKY3SV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jootsing.HackathonSafari;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		611B57BC2FAFDCA7000AAF1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HackathonSafari/HackathonSafari.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Y2RSKY3SV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jootsing.HackathonSafari;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		611B57BE2FAFDCA7000AAF1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 737F76N37Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jootsing.tapkit-buddy.HackathonSafariTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackathonSafari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HackathonSafari";
+			};
+			name = Debug;
+		};
+		611B57BF2FAFDCA7000AAF1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 737F76N37Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jootsing.tapkit-buddy.HackathonSafariTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackathonSafari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HackathonSafari";
+			};
+			name = Release;
+		};
+		611B57C12FAFDCA7000AAF1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 737F76N37Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jootsing.tapkit-buddy.HackathonSafariUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HackathonSafari;
+			};
+			name = Debug;
+		};
+		611B57C22FAFDCA7000AAF1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 737F76N37Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jootsing.tapkit-buddy.HackathonSafariUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HackathonSafari;
+			};
+			name = Release;
+		};
+		611B57DA2FAFE416000AAF1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HackathonSafarUload/HackathonSafarUload.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Y2RSKY3SV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HackathonSafarUload/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HackathonSafarUload;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jootsing.HackathonSafari.HackathonSafarUload;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		611B57DB2FAFE416000AAF1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HackathonSafarUload/HackathonSafarUload.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Y2RSKY3SV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HackathonSafarUload/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HackathonSafarUload;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jootsing.HackathonSafari.HackathonSafarUload;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		611B58072FAFE600000AAF1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Y2RSKY3SV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HackathonSafariLiveActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Hackathon Safari";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jootsing.HackathonSafari.HackathonSafariLiveActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		611B58082FAFE600000AAF1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Y2RSKY3SV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HackathonSafariLiveActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Hackathon Safari";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jootsing.HackathonSafari.HackathonSafariLiveActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		611B57942FAFDCA5000AAF1D /* Build configuration list for PBXProject "HackathonSafari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				611B57B82FAFDCA7000AAF1D /* Debug */,
+				611B57B92FAFDCA7000AAF1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		611B57BA2FAFDCA7000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				611B57BB2FAFDCA7000AAF1D /* Debug */,
+				611B57BC2FAFDCA7000AAF1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		611B57BD2FAFDCA7000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafariTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				611B57BE2FAFDCA7000AAF1D /* Debug */,
+				611B57BF2FAFDCA7000AAF1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		611B57C02FAFDCA7000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafariUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				611B57C12FAFDCA7000AAF1D /* Debug */,
+				611B57C22FAFDCA7000AAF1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		611B57D92FAFE416000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafarUload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				611B57DA2FAFE416000AAF1D /* Debug */,
+				611B57DB2FAFE416000AAF1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		611B58092FAFE600000AAF1D /* Build configuration list for PBXNativeTarget "HackathonSafariLiveActivityWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				611B58072FAFE600000AAF1D /* Debug */,
+				611B58082FAFE600000AAF1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		611B57C42FAFE26A000AAF1D /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-iOS-SDK.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		611B57C52FAFE26A000AAF1D /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 611B57C42FAFE26A000AAF1D /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalFramework;
+		};
+		611B57C72FAFE26A000AAF1D /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 611B57C42FAFE26A000AAF1D /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalInAppMessages;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 611B57912FAFDCA5000AAF1D /* Project object */;
+}
