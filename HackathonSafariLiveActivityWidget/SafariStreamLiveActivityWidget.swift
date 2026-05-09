@@ -6,52 +6,55 @@ import WidgetKit
 struct SafariStreamLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SafariStreamActivityAttributes.self) { context in
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(spacing: 14) {
                 HStack {
-                    Label(context.state.isLive ? "Live" : "Offline", systemImage: "dot.radiowaves.left.and.right")
-                        .font(.headline)
+                    Label(context.state.isLive ? "LIVE" : "OFFLINE", systemImage: "dot.radiowaves.left.and.right")
+                        .font(.caption.weight(.black))
+                        .foregroundStyle(context.state.isLive ? .red : .secondary)
                     Spacer()
                     Text(context.state.quality)
-                        .font(.subheadline.weight(.semibold))
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
                 }
 
-                HStack(alignment: .center, spacing: 14) {
+                VStack(spacing: 8) {
                     Image(systemName: context.state.iconName)
-                        .font(.system(size: 42, weight: .semibold))
-                        .frame(width: 58, height: 58)
+                        .font(.system(size: 38, weight: .semibold))
+                        .frame(width: 62, height: 62)
                         .foregroundStyle(.white)
                         .background(context.state.isLive ? Color.red : Color.secondary, in: RoundedRectangle(cornerRadius: 8))
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(context.state.headline)
-                            .font(.title3.weight(.semibold))
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.82)
-                        Text(context.attributes.hostName)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                    Text(context.state.headline)
+                        .font(.title2.weight(.bold))
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.78)
                 }
+                .frame(maxWidth: .infinity)
 
-                HStack(spacing: 16) {
+                HStack(spacing: 20) {
+                    Spacer()
                     metric("\(context.state.viewerCount)", "viewers")
                     metric(elapsedTime(context.state.elapsedSeconds), "elapsed")
+                    metric(context.state.status, "status")
                     Spacer()
-                    Text(context.state.status)
-                        .font(.caption.weight(.semibold))
                 }
 
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(spacing: 4) {
                     Text(context.state.detailLine1)
-                        .font(.subheadline.weight(.medium))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.75)
+                        .font(.title3.weight(.bold))
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.74)
                     Text(context.state.detailLine2)
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.top, 2)
             }
             .padding()
             .activityBackgroundTint(Color(.systemBackground))
@@ -80,18 +83,24 @@ struct SafariStreamLiveActivityWidget: Widget {
                     }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    VStack(alignment: .leading, spacing: 3) {
+                    VStack(spacing: 4) {
                         Text(context.state.headline)
-                            .font(.caption.weight(.semibold))
+                            .font(.headline.weight(.bold))
+                            .multilineTextAlignment(.center)
                             .lineLimit(1)
-                        HStack {
-                            Text(context.state.detailLine1)
-                                .lineLimit(1)
-                            Spacer()
-                            Text(elapsedTime(context.state.elapsedSeconds))
-                        }
-                        .font(.caption2)
+                            .minimumScaleFactor(0.78)
+                        Text(context.state.detailLine1)
+                            .font(.caption.weight(.semibold))
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.78)
+                        Text(context.state.detailLine2)
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(1)
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
             } compactLeading: {
                 Image(systemName: context.state.iconName)
@@ -106,9 +115,11 @@ struct SafariStreamLiveActivityWidget: Widget {
     }
 
     private func metric(_ value: String, _ label: String) -> some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(spacing: 2) {
             Text(value)
                 .font(.headline)
+                .lineLimit(1)
+                .minimumScaleFactor(0.74)
             Text(label)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
