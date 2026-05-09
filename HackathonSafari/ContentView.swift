@@ -3,11 +3,13 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var screenShare = ScreenShareController()
     @StateObject private var liveActivity = LiveActivityDemoModel()
+    @State private var isShowingDemoMode = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
+                    demoModePanel
                     screenSharePanel
                     liveActivityPanel
                 }
@@ -15,7 +17,44 @@ struct ContentView: View {
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Hackathon Safari")
+            .navigationDestination(isPresented: $isShowingDemoMode) {
+                DemoModeView()
+            }
+            .onOpenURL { url in
+                guard url.scheme == "hackathonsafari" else { return }
+                isShowingDemoMode = true
+            }
         }
+    }
+
+    private var demoModePanel: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Label("Demo mode", systemImage: "hand.wave.fill")
+                .font(.headline)
+
+            HStack(alignment: .center, spacing: 14) {
+                Text("👋")
+                    .font(.system(size: 52))
+                    .frame(width: 68, height: 68)
+                    .background(Color.red, in: RoundedRectangle(cornerRadius: 8))
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Prompt, leave, tap")
+                        .font(.title3.weight(.bold))
+                    Text("Type the demo prompt, then leave the app and tap the hand on the Live Activity.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Button {
+                isShowingDemoMode = true
+            } label: {
+                Label("Open Demo Mode", systemImage: "arrow.right.circle.fill")
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .panelStyle()
     }
 
     private var screenSharePanel: some View {
@@ -179,7 +218,7 @@ private struct SystemBroadcastButton: View {
     }
 }
 
-private extension View {
+extension View {
     func panelStyle() -> some View {
         self
             .padding(16)
